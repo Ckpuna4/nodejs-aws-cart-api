@@ -6,6 +6,12 @@ import { configure as serverlessExpress } from '@vendia/serverless-express';
 
 let server: Handler;
 
+const DB_ENDPOINT = process.env.DB_ENDPOINT!;
+const DB_USER = process.env.DB_USER!;
+const DB_PASSWORD = process.env.DB_PASSWORD!;
+const DB_PORT = Number(process.env.DB_PORT!);
+const DB_ID = process.env.DB_ID!;
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 

@@ -10,6 +10,8 @@ require('dotenv').config();
 const DB_ENDPOINT = process.env.DB_ENDPOINT!;
 const DB_USER = process.env.DB_USER!;
 const DB_PASSWORD = process.env.DB_PASSWORD!;
+const DB_PORT = process.env.DB_PORT!;
+const DB_ID = process.env.DB_ID!;
 
 export class NestRwcCartStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -23,7 +25,9 @@ export class NestRwcCartStack extends cdk.Stack {
       environment: {
           DB_ENDPOINT,
           DB_USER,
-          DB_PASSWORD
+          DB_PASSWORD,
+          DB_PORT,
+          DB_ID
       },
       bundling: {
         externalModules: [
@@ -32,6 +36,13 @@ export class NestRwcCartStack extends cdk.Stack {
             '@nestjs/microservices',
             'class-transformer',
             'class-validator',
+            'better-sqlite3',
+            'mysql2',
+            'mysql',
+            'sqlite3',
+            'tedious',
+            'oracledb',
+            'pg-query-stream',
         ]
       }
     });
