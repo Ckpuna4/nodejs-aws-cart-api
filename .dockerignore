@@ -1,0 +1,10 @@
+# exclude node_modules because it will be installed later
+node_modules
+# exclude logs, why we need them on the image?
+npm-debug.log
+# exclude aws stack folders because we need only the nodejs application
+bin
+lib
+# exclude tests because for now we will run it locally
+test
+test-data.md
