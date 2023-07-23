@@ -19,7 +19,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "deploy": "npm run build && cdk deploy --profile skreepatch"
+    "deploy": "npm run build && cdk deploy --profile skreepatch",
+    "docker:build": "docker build . -t skreepatch/nodejs-aws-cart-api --progress=plain",
+    "eb:deploy": "eb deploy && sh ./set-env.sh"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.3",
@@ -43,6 +45,7 @@
     "pg": "^8.11.1",
     "pg-query-stream": "^4.5.1",
     "reflect-metadata": "^0.1.13",
+    "rimraf": "^5.0.1",
     "rxjs": "^7.8.1",
     "source-map-support": "^0.5.21",
     "sqlite3": "^5.1.6",
@@ -71,7 +74,6 @@
     "eslint-plugin-import": "^2.27.5",
     "jest": "29.5.0",
     "prettier": "^2.8.8",
-    "rimraf": "^5.0.1",
     "supertest": "^6.3.3",
     "ts-jest": "29.1.0",
     "ts-loader": "^9.4.3",
